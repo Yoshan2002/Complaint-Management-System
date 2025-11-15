@@ -1,9 +1,6 @@
 <?php
 require_once '../config/config.php';
 
-// compute project-aware base URL so redirect stays inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 // Destroy all session data
 $_SESSION = [];
 if (session_id()) {
@@ -11,7 +8,8 @@ if (session_id()) {
     session_destroy();
 }
 
-// Redirect to project home
-header("Location: {$base_url}/");
+// Redirect to project home using BASE_PATH (works under subfolders)
+$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+header('Location: ' . $root . '/');
 exit;
 ?>

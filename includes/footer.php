@@ -1,8 +1,6 @@
 <?php
-// Ensure a project-aware base URL is available for links
-if (!isset($base_url)) {
-    $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-}
+// Use global BASE_PATH if defined, else fall back to request-derived path
+$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 ?>
 <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-16">
@@ -21,10 +19,10 @@ if (!isset($base_url)) {
                 <div>
                     <h3 class="font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="<?php echo $base_url; ?>/" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="<?php echo $base_url; ?>/about.php" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="<?php echo $base_url; ?>/faq.php" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="<?php echo $base_url; ?>/contact.php" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="<?php echo $root; ?>/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="<?php echo $root; ?>/about.php" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="<?php echo $root; ?>/faq.php" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="<?php echo $root; ?>/contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 

@@ -6,6 +6,15 @@ define('SITE_NAME', 'University Complaint System');
 define('SITE_URL', 'http://localhost/complaint_system');
 define('UPLOAD_DIR', 'uploads/');
 
+// Compute project base path from filesystem (works when the app is in a subfolder)
+$__project_root = str_replace('\\','/', realpath(dirname(__DIR__)));
+$__doc_root = str_replace('\\','/', realpath($_SERVER['DOCUMENT_ROOT']));
+$__base_path = '/' . trim(str_replace($__doc_root, '', $__project_root), '/');
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', $__base_path !== '' ? $__base_path : '/');
+}
+unset($__project_root, $__doc_root, $__base_path);
+
 // Email configuration (for PHPMailer)
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 587);
@@ -24,7 +33,7 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /auth/login.php');
+        header('Location: ' . (defined('BASE_PATH') ? BASE_PATH : '') . '/auth/login.php');
         exit;
     }
 }
@@ -32,7 +41,7 @@ function requireLogin() {
 function requireRole($role) {
     requireLogin();
     if ($_SESSION['role'] !== $role) {
-        header('Location: /index.php');
+        header('Location: ' . (defined('BASE_PATH') ? BASE_PATH : '') . '/index.php');
         exit;
     }
 }

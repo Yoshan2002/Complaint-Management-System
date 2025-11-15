@@ -140,7 +140,7 @@ include '../includes/header.php';
                                 <div class="flex items-start justify-between">
                                     <div class="flex-1">
                                         <h3 class="font-semibold text-gray-900 mb-1">
-                                            <a href="complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600">
+                                            <a href="complaints.php?focus=<?php echo $complaint['id']; ?>" class="hover:text-blue-600">
                                                 <?php echo htmlspecialchars($complaint['title']); ?>
                                             </a>
                                         </h3>
