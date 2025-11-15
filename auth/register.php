@@ -158,7 +158,7 @@ include '../includes/header.php';
             <div class="mt-6 text-center">
                 <p class="text-gray-600">
                     Already have an account? 
-                    <a href="<?php echo $base_url; ?>/login.php" class="text-blue-600 hover:text-blue-700 font-semibold">
+                    <a href="<?php echo $base_url; ?>/auth/login.php" class="text-blue-600 hover:text-blue-700 font-semibold">
                         Sign in here
                     </a>
                 </p>

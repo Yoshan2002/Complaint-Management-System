@@ -2,8 +2,8 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// compute project-aware base URL so links/redirects stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+// Use project root from BASE_PATH for safe redirects/links across subdirectories
+$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 $database = new Database();
 $db = $database->getConnection();
@@ -41,8 +41,10 @@ if ($_POST) {
                 $notif_stmt->bindParam(':message', $message);
                 $notif_stmt->execute();
                 
-                // Redirect to project-aware users page to avoid form resubmission
-                header("Location: {$base_url}/admin/users.php");
+                // Redirect to the same page (preserve filters) to avoid form resubmission
+                $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+                $query = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? ('?' . $_SERVER['QUERY_STRING']) : '';
+                header('Location: ' . $path . $query);
                 exit;
             } else {
                 $error = 'Failed to approve user.';
@@ -53,8 +55,10 @@ if ($_POST) {
             $stmt->bindParam(':id', $user_id);
             
             if ($stmt->execute()) {
-                // Redirect back into project
-                header("Location: {$base_url}/admin/users.php");
+                // Redirect back to the same page (preserve filters)
+                $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+                $query = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? ('?' . $_SERVER['QUERY_STRING']) : '';
+                header('Location: ' . $path . $query);
                 exit;
             } else {
                 $error = 'Failed to reject user.';
@@ -65,7 +69,10 @@ if ($_POST) {
             $stmt->bindParam(':id', $user_id);
             
             if ($stmt->execute()) {
-                // Redirect back into project
+                // Redirect back to the same page (preserve filters)
+                $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+                $query = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? ('?' . $_SERVER['QUERY_STRING']) : '';
+                header('Location: ' . $path . $query);
                 header("Location: {$base_url}/admin/users.php");
                 exit;
             } else {
