@@ -2,8 +2,8 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// compute project-aware base URL so fallback redirects stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+// Use BASE_PATH for safe fallback redirects under subfolders
+$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 if ($_POST && isset($_POST['action']) && isset($_POST['user_id'])) {
     $database = new Database();
@@ -45,7 +45,7 @@ if ($_POST && isset($_POST['action']) && isset($_POST['user_id'])) {
 }
 
 // Redirect back to the referring page or project-aware dashboard
-$redirect = $_SERVER['HTTP_REFERER'] ?? ($base_url . '/dashboard.php');
-header("Location: $redirect");
+$redirect = $_SERVER['HTTP_REFERER'] ?? ($root . '/admin/dashboard.php');
+header('Location: ' . $redirect);
 exit;
 ?>

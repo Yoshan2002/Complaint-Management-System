@@ -240,7 +240,7 @@ include '../includes/header.php';
                                                 class="text-blue-600 hover:text-blue-900 mr-3">
                                             <i class="fas fa-edit"></i> Update
                                         </button>
-                                        <a href="complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                        <a href="?focus=<?php echo $complaint['id']; ?>" 
                                            class="text-green-600 hover:text-green-900">
                                             <i class="fas fa-eye"></i> View
                                         </a>
