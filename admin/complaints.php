@@ -41,6 +41,25 @@ if ($_POST && isset($_POST['update_status'])) {
         $log_stmt->bindParam(':notes', $notes);
         $log_stmt->execute();
         
+        // Get complaint details for email
+        $complaint_query = "SELECT * FROM complaints WHERE id = :id";
+        $complaint_stmt = $db->prepare($complaint_query);
+        $complaint_stmt->bindParam(':id', $complaint_id);
+        $complaint_stmt->execute();
+        $complaint_data = $complaint_stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Get user details for email
+        $user_query = "SELECT full_name, email FROM users WHERE id = :id";
+        $user_stmt = $db->prepare($user_query);
+        $user_stmt->bindParam(':id', $current_complaint['user_id']);
+        $user_stmt->execute();
+        $user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Send email notification to user
+        require_once '../config/email.php';
+        $emailConfig = new EmailConfig();
+        $emailSent = $emailConfig->notifyUserOnComplaintUpdate($complaint_data, $user_data, $new_status, $notes);
+        
         // Create notification for user
         $notif_query = "INSERT INTO notifications (user_id, complaint_id, title, message) 
                        VALUES (:user_id, :complaint_id, :title, :message)";

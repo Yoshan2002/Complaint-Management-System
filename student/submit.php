@@ -60,6 +60,25 @@ if ($_POST) {
             if ($stmt->execute()) {
                 $complaint_id = $db->lastInsertId();
                 
+                // Get complaint details for email
+                $complaint_query = "SELECT * FROM complaints WHERE id = :id";
+                $complaint_stmt = $db->prepare($complaint_query);
+                $complaint_stmt->bindParam(':id', $complaint_id);
+                $complaint_stmt->execute();
+                $complaint_data = $complaint_stmt->fetch(PDO::FETCH_ASSOC);
+                
+                // Get user details for email
+                $user_query = "SELECT full_name, email FROM users WHERE id = :id";
+                $user_stmt = $db->prepare($user_query);
+                $user_stmt->bindParam(':id', $user_id);
+                $user_stmt->execute();
+                $user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+                
+                // Send email notification to admins
+                require_once '../config/email.php';
+                $emailConfig = new EmailConfig();
+                $emailSent = $emailConfig->notifyAdminsOnNewComplaint($complaint_data, $user_data);
+                
                 // Create notification for admins
                 $admin_query = "SELECT id FROM users WHERE role = 'admin'";
                 $admin_stmt = $db->prepare($admin_query);
