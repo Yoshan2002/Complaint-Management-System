@@ -73,7 +73,7 @@ if ($_POST) {
                 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
                 $query = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? ('?' . $_SERVER['QUERY_STRING']) : '';
                 header('Location: ' . $path . $query);
-                header("Location: {$base_url}/admin/users.php");
+                header("Location: {$root}/admin/users.php");
                 exit;
             } else {
                 $error = 'Failed to delete user.';

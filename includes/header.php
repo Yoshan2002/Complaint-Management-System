@@ -62,7 +62,7 @@ $root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']
                     <?php else: ?>
                         <a href="<?php echo $root; ?>/" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
                         <a href="<?php echo $root; ?>/about.php" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-                        <a href="<?php echo $base_url; ?>/faq.php" class="text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
+                        <a href="<?php echo $root; ?>/faq.php" class="text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
                         <a href="<?php echo $root; ?>/contact.php" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
                         <a href="<?php echo $root; ?>/auth/login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Login</a>
                     <?php endif; ?>

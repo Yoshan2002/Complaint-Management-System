@@ -1,8 +1,3 @@
--- University Complaint Management System Database Schema
-
-CREATE DATABASE IF NOT EXISTS complaint_system;
-USE complaint_system;
-
 -- Users table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
