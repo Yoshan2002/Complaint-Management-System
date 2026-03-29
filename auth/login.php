@@ -98,14 +98,14 @@ include '../includes/header.php';
                 </p>
             </div>
             
-            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+            <!-- <div class="mt-4 p-4 bg-blue-50 rounded-lg">
                 <h4 class="font-semibold text-blue-900 mb-2">Demo Accounts:</h4>
                 <div class="text-sm text-blue-800 space-y-1">
                     <p><strong>Admin:</strong> admin@university.edu / password</p>
                     <p><strong>Student:</strong> student1@university.edu / password</p>
                     <p><strong>Staff:</strong> staff1@university.edu / password</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

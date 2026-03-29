@@ -189,14 +189,14 @@ include '../includes/header.php';
                                         <p class="text-xs text-gray-500 mt-1"><?php echo formatDate($user['created_at']); ?></p>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <form method="POST" action="approve_user.php" class="inline">
+                                        <form method="POST" action="<?php echo $root; ?>/admin/approve_user.php" class="inline">
                                             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                                             <input type="hidden" name="action" value="approve">
                                             <button type="submit" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors">
                                                 <i class="fas fa-check"></i>
                                             </button>
                                         </form>
-                                        <form method="POST" action="approve_user.php" class="inline">
+                                        <form method="POST" action="<?php echo $root; ?>/admin/approve_user.php" class="inline">
                                             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                                             <input type="hidden" name="action" value="reject">
                                             <button type="submit" class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors">

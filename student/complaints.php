@@ -100,7 +100,7 @@ include '../includes/header.php';
                         You haven't submitted any complaints yet.
                     <?php endif; ?>
                 </p>
-                <a href="<?php echo $base_url; ?>/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                <a href="<?php echo $root; ?>/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                     <i class="fas fa-plus mr-2"></i>Submit Your First Complaint
                 </a>
             </div>

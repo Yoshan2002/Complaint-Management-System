@@ -100,7 +100,7 @@ include '../includes/header.php';
                         You haven't submitted any complaints yet.
                     <?php endif; ?>
                 </p>
-                <a href="submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                <a href="<?php echo $root; ?>/staff/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                     <i class="fas fa-plus mr-2"></i>Submit Your First Complaint
                 </a>
             </div>
@@ -111,7 +111,7 @@ include '../includes/header.php';
                         <div class="flex items-start justify-between mb-4">
                             <div class="flex-1">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                                    <a href="complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600 transition-colors">
+                                    <a href="<?php echo $root; ?>/staff/complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600 transition-colors">
                                         <?php echo htmlspecialchars($complaint['title']); ?>
                                     </a>
                                 </h3>
@@ -149,13 +149,13 @@ include '../includes/header.php';
                             </div>
 
                             <div class="flex items-center space-x-3">
-                                <a href="<?php echo $base_url; ?>/staff/complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                <a href="<?php echo $root; ?>/staff/complaint.php?id=<?php echo $complaint['id']; ?>" 
                                    class="text-blue-600 hover:text-blue-700 font-medium">
                                     <i class="fas fa-eye mr-1"></i>View Details
                                 </a>
                                 
                                 <?php if ($complaint['status'] === 'pending'): ?>
-                                    <a href="<?php echo $base_url; ?>/staff/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                    <a href="<?php echo $root; ?>/staff/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
                                        class="text-green-600 hover:text-green-700 font-medium">
                                         <i class="fas fa-edit mr-1"></i>Edit
                                     </a>

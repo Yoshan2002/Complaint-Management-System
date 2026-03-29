@@ -28,7 +28,7 @@ if (isset($_POST['mark_all_read'])) {
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->execute();
     
-    header("Location: {$base_url}/admin/notifications.php");
+    header("Location: {$root}/admin/notifications.php");
     exit;
 }
 
