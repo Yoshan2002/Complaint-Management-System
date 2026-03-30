@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $database = new Database();
 $db = $database->getConnection();
 

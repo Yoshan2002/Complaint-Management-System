@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireRole('student');
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $database = new Database();
 $db = $database->getConnection();
 
@@ -50,7 +47,7 @@ include '../includes/header.php';
                 <h1 class="text-3xl font-bold text-gray-900 mb-2">My Complaints</h1>
                 <p class="text-gray-600">Track and manage your submitted complaints</p>
             </div>
-            <a href="<?php echo $base_url; ?>/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <a href="/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                 <i class="fas fa-plus mr-2"></i>Submit New Complaint
             </a>
         </div>
@@ -100,7 +97,7 @@ include '../includes/header.php';
                         You haven't submitted any complaints yet.
                     <?php endif; ?>
                 </p>
-                <a href="<?php echo $root; ?>/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                <a href="/student/submit.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                     <i class="fas fa-plus mr-2"></i>Submit Your First Complaint
                 </a>
             </div>
@@ -111,7 +108,7 @@ include '../includes/header.php';
                         <div class="flex items-start justify-between mb-4">
                             <div class="flex-1">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                                    <a href="<?php echo $base_url; ?>/student/complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600 transition-colors">
+                                    <a href="/student/complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600 transition-colors">
                                         <?php echo htmlspecialchars($complaint['title']); ?>
                                     </a>
                                 </h3>
@@ -149,13 +146,13 @@ include '../includes/header.php';
                             </div>
 
                             <div class="flex items-center space-x-3">
-                                <a href="<?php echo $base_url; ?>/student/complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                <a href="/student/complaint.php?id=<?php echo $complaint['id']; ?>" 
                                    class="text-blue-600 hover:text-blue-700 font-medium">
                                     <i class="fas fa-eye mr-1"></i>View Details
                                 </a>
                                 
                                 <?php if ($complaint['status'] === 'pending'): ?>
-                                    <a href="<?php echo $base_url; ?>/student/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                    <a href="/student/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
                                        class="text-green-600 hover:text-green-700 font-medium">
                                         <i class="fas fa-edit mr-1"></i>Edit
                                     </a>

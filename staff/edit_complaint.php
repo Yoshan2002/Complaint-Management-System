@@ -60,7 +60,7 @@ if ($_POST && isset($_POST['update_complaint'])) {
         if ($update_stmt->execute()) {
             $success = 'Complaint updated successfully!';
             // Redirect after 1 second
-            header('Refresh: 1; url=' . (defined('BASE_PATH') ? BASE_PATH : '') . '/staff/complaints.php');
+            header('Refresh: 1; url=/staff/complaints.php');
         } else {
             $error = 'Failed to update complaint. Please try again.';
         }
@@ -75,7 +75,7 @@ include '../includes/header.php';
     <div class="fade-in">
         <!-- Back button -->
         <div class="mb-6">
-            <a href="<?php echo $root; ?>/staff/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
+            <a href="/staff/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
                 <i class="fas fa-arrow-left mr-2"></i>Back to My Complaints
             </a>
         </div>
@@ -176,7 +176,7 @@ include '../includes/header.php';
                             class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
                         <i class="fas fa-save mr-2"></i>Save Changes
                     </button>
-                    <a href="<?php echo $root; ?>/staff/complaints.php" 
+                    <a href="/staff/complaints.php" 
                        class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium">
                         <i class="fas fa-times mr-2"></i>Cancel
                     </a>

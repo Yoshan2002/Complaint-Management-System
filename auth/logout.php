@@ -8,8 +8,7 @@ if (session_id()) {
     session_destroy();
 }
 
-// Redirect to project home using BASE_PATH (works under subfolders)
-$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-header('Location: ' . $root . '/');
+// Redirect to project home
+header('Location: /');
 exit;
 ?>

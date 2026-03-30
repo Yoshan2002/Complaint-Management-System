@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireRole('staff');
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $database = new Database();
 $db = $database->getConnection();
 
@@ -100,7 +97,7 @@ include '../includes/header.php';
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-xl font-bold text-gray-900">Recent Complaints</h2>
-                        <a href="<?php echo $base_url; ?>/staff/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
+                        <a href="/staff/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
                             View All <i class="fas fa-arrow-right ml-1"></i>
                         </a>
                     </div>
@@ -109,7 +106,7 @@ include '../includes/header.php';
                         <div class="text-center py-8">
                             <i class="fas fa-clipboard-list text-gray-400 text-4xl mb-4"></i>
                             <p class="text-gray-600 mb-4">No complaints yet</p>
-                            <a href="<?php echo $base_url; ?>/staff/submit.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <a href="/staff/submit.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                                 Submit Your First Complaint
                             </a>
                         </div>
@@ -120,7 +117,7 @@ include '../includes/header.php';
                                     <div class="flex items-start justify-between">
                                         <div class="flex-1">
                                             <h3 class="font-semibold text-gray-900 mb-1">
-                                                <a href="<?php echo $base_url; ?>/staff/complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600">
+                                                <a href="/staff/complaint.php?id=<?php echo $complaint['id']; ?>" class="hover:text-blue-600">
                                                     <?php echo htmlspecialchars($complaint['title']); ?>
                                                 </a>
                                             </h3>
@@ -149,13 +146,13 @@ include '../includes/header.php';
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
                     <div class="space-y-4">
-                        <a href="<?php echo $base_url; ?>/staff/submit.php" class="block w-full bg-blue-600 text-white text-center py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        <a href="/staff/submit.php" class="block w-full bg-blue-600 text-white text-center py-3 rounded-lg hover:bg-blue-700 transition-colors">
                             <i class="fas fa-plus mr-2"></i>Submit New Complaint
                         </a>
-                        <a href="<?php echo $base_url; ?>/staff/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="/staff/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-3 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-list mr-2"></i>View All Complaints
                         </a>
-                        <a href="<?php echo $base_url; ?>/staff/profile.php" class="block w-full bg-gray-100 text-gray-700 text-center py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="/staff/profile.php" class="block w-full bg-gray-100 text-gray-700 text-center py-3 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-user mr-2"></i>Edit Profile
                         </a>
                     </div>
@@ -165,7 +162,7 @@ include '../includes/header.php';
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-xl font-bold text-gray-900">Notifications</h2>
-                        <a href="<?php echo $base_url; ?>/staff/notifications.php" class="text-blue-600 hover:text-blue-700 font-medium">
+                        <a href="/staff/notifications.php" class="text-blue-600 hover:text-blue-700 font-medium">
                             View All
                         </a>
                     </div>

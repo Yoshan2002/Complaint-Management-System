@@ -29,11 +29,11 @@ if ($_POST) {
                 $_SESSION['full_name'] = $user['full_name'];
                 $_SESSION['role'] = $user['role'];
                 
-                // Redirect based on role (use relative paths so project folder is preserved)
+                // Redirect based on role
                 if ($user['role'] === 'admin') {
-                    header('Location: ../admin/dashboard.php');
+                    header('Location: /admin/dashboard.php');
                 } else {
-                    header('Location: ../' . $user['role'] . '/dashboard.php');
+                    header('Location: /' . $user['role'] . '/dashboard.php');
                 }
                 exit;
             } else {
@@ -92,7 +92,7 @@ include '../includes/header.php';
             <div class="mt-6 text-center">
                 <p class="text-gray-600">
                     Don't have an account? 
-                    <a href="register.php" class="text-blue-600 hover:text-blue-700 font-semibold">
+                    <a href="/auth/register.php" class="text-blue-600 hover:text-blue-700 font-semibold">
                         Sign up here
                     </a>
                 </p>

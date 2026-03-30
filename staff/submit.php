@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireRole('staff');
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $success = '';
 $error = '';
 
@@ -106,7 +103,7 @@ include '../includes/header.php';
                     <i class="fas fa-check-circle mr-2"></i>
                     <?php echo $success; ?>
                     <div class="mt-2">
-                        <a href="<?php echo $base_url; ?>/staff/complaints.php" class="text-green-800 hover:text-green-900 font-medium">
+                        <a href="/staff/complaints.php" class="text-green-800 hover:text-green-900 font-medium">
                             View your complaints <i class="fas fa-arrow-right ml-1"></i>
                         </a>
                     </div>
@@ -179,7 +176,7 @@ include '../includes/header.php';
                 </div>
 
                 <div class="flex items-center justify-between pt-6 border-t">
-                    <a href="<?php echo $base_url; ?>/staff/dashboard.php" class="text-gray-600 hover:text-gray-700">
+                    <a href="/staff/dashboard.php" class="text-gray-600 hover:text-gray-700">
                         <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
                     </a>
                     <button type="submit" 

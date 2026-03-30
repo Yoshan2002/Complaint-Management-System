@@ -2,8 +2,7 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// Use project root from BASE_PATH for safe redirects/links across subdirectories
-$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+// BASE_PATH is defined globally in config.php
 
 $database = new Database();
 $db = $database->getConnection();
@@ -17,7 +16,7 @@ if (isset($_GET['mark_read']) && $_GET['mark_read']) {
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->execute();
     
-    header('Location: ' . $root . '/admin/notifications.php');
+    header('Location: ' . BASE_PATH . '/admin/notifications.php');
     exit;
 }
 
@@ -28,7 +27,7 @@ if (isset($_POST['mark_all_read'])) {
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->execute();
     
-    header("Location: {$root}/admin/notifications.php");
+    header("Location: " . BASE_PATH . "/admin/notifications.php");
     exit;
 }
 
@@ -121,7 +120,7 @@ include '../includes/header.php';
                             
                             <div class="flex items-center space-x-2 ml-4">
                                 <?php if ($notification['complaint_id']): ?>
-                                    <a href="complaints.php?focus=<?php echo $notification['complaint_id']; ?>" 
+                                    <a href="/admin/complaints.php?focus=<?php echo $notification['complaint_id']; ?>" 
                                        class="text-blue-600 hover:text-blue-700 text-sm font-medium">
                                         <i class="fas fa-eye mr-1"></i>View Complaint
                                     </a>
