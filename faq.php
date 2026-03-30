@@ -158,8 +158,8 @@ include 'includes/header.php';
                             <h3 class="text-lg font-semibold text-gray-900 mb-2">Who should I contact for additional help?</h3>
                             <p class="text-gray-600">For technical issues or questions not covered here, contact our support team:</p>
                             <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                                <li>Email: support@university.edu</li>
-                                <li>Phone: +1 (555) 123-4567</li>
+                                <li>Email: aragri@agri.ruh.ac.lk</li>
+                                <li>Phone: +94 41 2292200</li>
                                 <li>Office Hours: Monday-Friday, 8:00 AM - 5:00 PM</li>
                             </ul>
                         </div>
