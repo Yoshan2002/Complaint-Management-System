@@ -39,9 +39,11 @@ $root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']
                 <div>
                     <h3 class="font-semibold mb-4">Contact Info</h3>
                     <div class="space-y-2 text-gray-300">
-                        <p><i class="fas fa-envelope mr-2"></i> support@university.edu</p>
-                        <p><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-map-marker-alt mr-2"></i> University Campus</p>
+                        <p><i class="fas fa-envelope mr-2"></i> aragri@agri.ruh.ac.lk</p>
+                        <p><i class="fas fa-phone mr-2"></i> +94 41 2292200</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> University of Ruhuna<br>
+                                       Faculty of Agriculture<br>
+                                       Mapalana, Kamburupitiya</p>
                     </div>
                 </div>
             </div>

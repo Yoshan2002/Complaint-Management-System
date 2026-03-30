@@ -125,7 +125,7 @@ include 'includes/header.php';
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-900">Email</h3>
-                                    <p class="text-gray-600">support@university.edu</p>
+                                    <p class="text-gray-600">aragri@agri.ruh.ac.lk</p>
                                     <p class="text-sm text-gray-500">We typically respond within 24 hours</p>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ include 'includes/header.php';
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-900">Phone</h3>
-                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-gray-600">+94 41 2292200</p>
                                     <p class="text-sm text-gray-500">Monday - Friday, 8:00 AM - 5:00 PM</p>
                                 </div>
                             </div>
@@ -148,9 +148,9 @@ include 'includes/header.php';
                                 <div>
                                     <h3 class="font-semibold text-gray-900">Office Location</h3>
                                     <p class="text-gray-600">
-                                        Administration Building, Room 205<br>
-                                        University Campus<br>
-                                        City, State 12345
+                                       University of Ruhuna<br>
+                                       Faculty of Agriculture<br>
+                                       Mapalana, Kamburupitiya
                                     </p>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ include 'includes/header.php';
                         </p>
                         <div class="space-y-2">
                             <p class="text-red-900 font-semibold">
-                                <i class="fas fa-phone mr-2"></i>Emergency Hotline: +1 (555) 911-HELP
+                                <i class="fas fa-phone mr-2"></i>Emergency Hotline: +94 41 2292200-HELP
                             </p>
                             <p class="text-red-800 text-sm">Available 24/7 for emergency situations</p>
                         </div>
