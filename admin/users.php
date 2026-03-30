@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// Use project root from BASE_PATH for safe redirects/links across subdirectories
-$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $database = new Database();
 $db = $database->getConnection();
 
@@ -73,7 +70,7 @@ if ($_POST) {
                 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
                 $query = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? ('?' . $_SERVER['QUERY_STRING']) : '';
                 header('Location: ' . $path . $query);
-                header("Location: {$root}/admin/users.php");
+                header("Location: /admin/users.php");
                 exit;
             } else {
                 $error = 'Failed to delete user.';

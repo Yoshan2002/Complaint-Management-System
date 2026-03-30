@@ -1,8 +1,6 @@
 <?php
 require_once 'config/config.php';
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 $page_title = 'About - University Complaint System';
 include 'includes/header.php';

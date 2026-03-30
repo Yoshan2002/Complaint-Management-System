@@ -2,8 +2,7 @@
 require_once '../config/config.php';
 requireAdmin();
 
-// Use project root from BASE_PATH for links inside subdirectories
-$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+// Admin profile page
 
 $database = new Database();
 $db = $database->getConnection();
@@ -158,7 +157,7 @@ include '../includes/header.php';
                         </div>
 
                         <div class="flex items-center justify-between pt-6 border-t">
-                            <a href="<?php echo $root; ?>/admin/dashboard.php" class="text-gray-600 hover:text-gray-700">
+                            <a href="/admin/dashboard.php" class="text-gray-600 hover:text-gray-700">
                                 <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
                             </a>
                             <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
@@ -173,13 +172,13 @@ include '../includes/header.php';
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Admin Quick Actions</h3>
                     <div class="space-y-3">
-                        <a href="<?php echo $root; ?>/admin/users.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="<?php echo BASE_PATH; ?>/admin/users.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-users mr-2"></i>Manage Users
                         </a>
-                        <a href="<?php echo $root; ?>/admin/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="<?php echo BASE_PATH; ?>/admin/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-clipboard-list mr-2"></i>Manage Complaints
                         </a>
-                        <a href="<?php echo $root; ?>/admin/notifications.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="<?php echo BASE_PATH; ?>/admin/notifications.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-bell mr-2"></i>Notifications
                         </a>
                     </div>

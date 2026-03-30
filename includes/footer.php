@@ -1,6 +1,5 @@
 <?php
-// Use global BASE_PATH if defined, else fall back to request-derived path
-$root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+// All footer links use simple root-relative paths
 ?>
 <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-16">
@@ -19,10 +18,10 @@ $root = defined('BASE_PATH') ? BASE_PATH : rtrim(dirname($_SERVER['SCRIPT_NAME']
                 <div>
                     <h3 class="font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="<?php echo $root; ?>/" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="<?php echo $root; ?>/about.php" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="<?php echo $root; ?>/faq.php" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="<?php echo $root; ?>/contact.php" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/about.php" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="/faq.php" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="/contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 

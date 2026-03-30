@@ -1,9 +1,6 @@
 <?php
 require_once 'config/config.php';
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $page_title = 'Home - University Complaint System';
 include 'includes/header.php';
 ?>
@@ -21,16 +18,16 @@ include 'includes/header.php';
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <?php if (isLoggedIn()): ?>
-                        <a href="<?php echo $base_url; ?>/<?php echo getUserRole(); ?>/dashboard.php" 
+                        <a href="/<?php echo getUserRole(); ?>/dashboard.php" 
                            class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all hover-scale">
                             Go to Dashboard
                         </a>
                     <?php else: ?>
-                        <a href="<?php echo $base_url; ?>/auth/register.php" 
+                        <a href="/auth/register.php" 
                            class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all hover-scale">
                             Register Now
                         </a>
-                        <a href="<?php echo $base_url; ?>/auth/login.php" 
+                        <a href="/auth/login.php" 
                            class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all hover-scale">
                             Login
                         </a>
@@ -127,7 +124,7 @@ include 'includes/header.php';
                 Join hundreds of students and staff in making our university better.
             </p>
             <?php if (!isLoggedIn()): ?>
-                <a href="<?php echo $base_url; ?>/auth/register.php" 
+                <a href="/auth/register.php" 
                    class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all hover-scale">
                     Get Started Today
                 </a>

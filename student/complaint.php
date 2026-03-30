@@ -47,7 +47,7 @@ include '../includes/header.php';
     <div class="fade-in">
         <!-- Back button -->
         <div class="mb-6">
-            <a href="<?php echo $root; ?>/student/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
+            <a href="/student/complaints.php" class="text-blue-600 hover:text-blue-700 font-medium">
                 <i class="fas fa-arrow-left mr-2"></i>Back to My Complaints
             </a>
         </div>
@@ -103,7 +103,7 @@ include '../includes/header.php';
                 <div class="mt-6">
                     <h3 class="text-md font-semibold text-gray-900 mb-3">Attached Photo</h3>
                     <div class="max-w-md">
-                        <img src="<?php echo $root; ?>/<?php echo htmlspecialchars($complaint['photo']); ?>" 
+                        <img src="/<?php echo htmlspecialchars($complaint['photo']); ?>" 
                              alt="Complaint photo" 
                              class="w-full rounded-lg shadow-md border border-gray-200">
                     </div>
@@ -155,17 +155,17 @@ include '../includes/header.php';
         <!-- Edit Option for Pending Complaints -->
         <?php if ($complaint['status'] === 'pending'): ?>
             <div class="flex gap-4">
-                <a href="<?php echo $root; ?>/student/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
+                <a href="/student/edit_complaint.php?id=<?php echo $complaint['id']; ?>" 
                    class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
                     <i class="fas fa-edit mr-2"></i>Edit Complaint
                 </a>
-                <a href="<?php echo $root; ?>/student/complaints.php" 
+                <a href="/student/complaints.php" 
                    class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
                     <i class="fas fa-times mr-2"></i>Cancel
                 </a>
             </div>
         <?php else: ?>
-            <a href="<?php echo $root; ?>/student/complaints.php" 
+            <a href="/student/complaints.php"
                class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i>Back to Complaints
             </a>

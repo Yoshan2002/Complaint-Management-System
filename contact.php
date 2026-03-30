@@ -1,9 +1,6 @@
 <?php
 require_once 'config/config.php';
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $success = '';
 $error = '';
 
@@ -192,14 +189,14 @@ include 'includes/header.php';
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Links</h3>
                         <div class="space-y-3">
-                            <a href="<?php echo $base_url; ?>/faq.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
+                            <a href="/faq.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
                                 <i class="fas fa-question-circle mr-2"></i>Frequently Asked Questions
                             </a>
-                            <a href="<?php echo $base_url; ?>/about.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
+                            <a href="/about.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
                                 <i class="fas fa-info-circle mr-2"></i>About the System
                             </a>
                             <?php if (!isLoggedIn()): ?>
-                                <a href="<?php echo $base_url; ?>/auth/register.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
+                                <a href="/auth/register.php" class="block text-blue-600 hover:text-blue-700 transition-colors">
                                     <i class="fas fa-user-plus mr-2"></i>Create Account
                                 </a>
                             <?php endif; ?>

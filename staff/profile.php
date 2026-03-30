@@ -2,9 +2,6 @@
 require_once '../config/config.php';
 requireRole('staff');
 
-// compute project-aware base URL so links stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
 $database = new Database();
 $db = $database->getConnection();
 
@@ -175,7 +172,7 @@ include '../includes/header.php';
                         </div>
 
                         <div class="flex items-center justify-between pt-6 border-t">
-                            <a href="<?php echo $base_url; ?>/staff/dashboard.php" class="text-gray-600 hover:text-gray-700">
+                            <a href="<?php echo BASE_PATH; ?>/staff/dashboard.php" class="text-gray-600 hover:text-gray-700">
                                 <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
                             </a>
                             <button type="submit" 
@@ -241,13 +238,13 @@ include '../includes/header.php';
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                     <div class="space-y-3">
-                        <a href="<?php echo $base_url; ?>/staff/submit.php" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            <i class="fas fa-plus mr-2"></i>Submit Complaint
+                        <a href="<?php echo BASE_PATH; ?>/staff/submit.php" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Submit New Complaint
                         </a>
-                        <a href="<?php echo $base_url; ?>/staff/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
-                            <i class="fas fa-list mr-2"></i>View Complaints
+                        <a href="<?php echo BASE_PATH; ?>/staff/complaints.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                            <i class="fas fa-list mr-2"></i>View All Complaints
                         </a>
-                        <a href="<?php echo $base_url; ?>/staff/notifications.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <a href="<?php echo BASE_PATH; ?>/staff/notifications.php" class="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors">
                             <i class="fas fa-bell mr-2"></i>Notifications
                         </a>
                     </div>

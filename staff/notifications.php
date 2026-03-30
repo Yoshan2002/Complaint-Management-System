@@ -2,8 +2,6 @@
 require_once '../config/config.php';
 requireRole('staff');
 
-// compute project-aware base URL so links/redirects stay inside the project
-$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 $database = new Database();
 $db = $database->getConnection();
@@ -17,7 +15,7 @@ if (isset($_GET['mark_read']) && $_GET['mark_read']) {
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->execute();
     
-    header("Location: {$base_url}/staff/notifications.php");
+    header("Location: " . BASE_PATH . "/staff/notifications.php");
     exit;
 }
 
@@ -28,7 +26,7 @@ if (isset($_POST['mark_all_read'])) {
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->execute();
     
-    header("Location: {$base_url}/staff/notifications.php");
+    header("Location: " . BASE_PATH . "/staff/notifications.php");
     exit;
 }
 
@@ -121,14 +119,14 @@ include '../includes/header.php';
                             
                             <div class="flex items-center space-x-2 ml-4">
                                 <?php if ($notification['complaint_id']): ?>
-                                    <a href="<?php echo $base_url; ?>/staff/complaint.php?id=<?php echo $notification['complaint_id']; ?>" 
+                                    <a href="/staff/complaint.php?id=<?php echo $notification['complaint_id']; ?>" 
                                        class="text-blue-600 hover:text-blue-700 text-sm font-medium">
                                         <i class="fas fa-eye mr-1"></i>View Complaint
                                     </a>
                                 <?php endif; ?>
                                 
                                 <?php if (!$notification['is_read']): ?>
-                                    <a href="<?php echo $base_url; ?>/staff/notifications.php?mark_read=<?php echo $notification['id']; ?>" 
+                                    <a href="/staff/notifications.php?mark_read=<?php echo $notification['id']; ?>" 
                                        class="text-green-600 hover:text-green-700 text-sm font-medium">
                                         <i class="fas fa-check mr-1"></i>Mark Read
                                     </a>
